@@ -1,15 +1,11 @@
 
-<% if !@invoices.empty?%>
 <h1>Invoices</h1>
 <table>
   <tr>
     <th>Invoice Id
     <th>Customer</th>  
   </tr>
-  <% @invoices.each do |invoice| %>
-  <%= render partial: invoice, collection: @invoices %>
-  <% end %>
+  <%= render(@invoices) || 'No Invoices' %>
 </table>
-<%else%>
-  <%= "No Invoices"%>
-<%end%>
+
+
