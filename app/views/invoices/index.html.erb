@@ -1,3 +1,5 @@
+
+<% if !@invoices.empty?%>
 <h1>Invoices</h1>
 <table>
   <tr>
@@ -5,9 +7,9 @@
     <th>Customer</th>  
   </tr>
   <% @invoices.each do |invoice| %>
-    <tr>
-      <th><%= invoice.id %></th>
-      <th><%= invoice.orders.first ? invoice.orders.first.customer.name : "No Orders" %></th>
-    </tr>
+  <%= render partial: invoice, collection: @invoices %>
   <% end %>
 </table>
+<%else%>
+  <%= "No Invoices"%>
+<%end%>

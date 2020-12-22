@@ -1,3 +1,5 @@
+
+<% if !@orders.empty? %>
 <h2>Open Orders</h2>
 <table>
   <tr>
@@ -7,13 +9,10 @@
     <th>Customer</th>  
   </tr>
   <% @orders.each do |order| %>
-    <% order.products.each do |product| %>
-      <tr>
-        <td><%= order.id %></td>
-        <td><%= product.name %></td>
-        <td><%= product.price %></td>
-        <td><%= order.customer.name %></td>
-      </tr>
-    <% end %>
+    <%= render @orders%>
   <% end %>
 </table>
+
+<%else%>
+  <%= "No Orders"%>
+<%end%>
